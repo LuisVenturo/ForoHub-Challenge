@@ -1,7 +1,7 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.repository;
 
-import com.aluracurso.foro_hub.domain.perfil.Perfil;
-import com.aluracurso.foro_hub.domain.perfil.PerfilRepository;
+import com.lventuro.ForoHub_Challenge.domain.perfil.Perfil;
+import com.lventuro.ForoHub_Challenge.domain.perfil.PerfilRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -32,7 +32,7 @@ public class JpaPerfilRepository implements PerfilRepository {
     @Override
     public Perfil guardar(Perfil perfilDominio) {
         // Convierte el POJO de dominio a la entidad de persistencia.
-        var perfilPersistencia = new com.aluracurso.foro_hub.infrastructure.persistence.Perfil();
+        var perfilPersistencia = new Perfil();
         perfilPersistencia.setNombre(perfilDominio.getNombre());
 
         // Guarda la entidad en la base de datos.
@@ -47,7 +47,7 @@ public class JpaPerfilRepository implements PerfilRepository {
      * @param perfilPersistencia La entidad de persistencia.
      * @return El objeto de dominio.
      */
-    public Perfil convertirAEntidadDominio(com.aluracurso.foro_hub.infrastructure.persistence.Perfil perfilPersistencia) {
+    public Perfil convertirAEntidadDominio(Perfil perfilPersistencia) {
         return new Perfil(
                 perfilPersistencia.getId(),
                 perfilPersistencia.getNombre()

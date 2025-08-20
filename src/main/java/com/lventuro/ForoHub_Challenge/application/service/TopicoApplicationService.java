@@ -1,14 +1,14 @@
 package com.lventuro.ForoHub_Challenge.application.service;
 
-import com.aluracurso.foro_hub.aplication.dto.DatosTopicoDTO;
-import com.aluracurso.foro_hub.aplication.dto.TopicoActualizacionDTO;
-import com.aluracurso.foro_hub.domain.curso.CursoRepository;
-import com.aluracurso.foro_hub.domain.curso.exception.CursoNoEncontradoException;
-import com.aluracurso.foro_hub.domain.topico.Topico;
-import com.aluracurso.foro_hub.domain.topico.TopicoRepository;
-import com.aluracurso.foro_hub.domain.topico.exception.TopicoDuplicadoException;
-import com.aluracurso.foro_hub.domain.topico.exception.TopicoNoEncontradoException;
-import com.aluracurso.foro_hub.domain.usuario.UsuarioRepository;
+import com.lventuro.ForoHub_Challenge.application.dto.DatosTopicoDTO;
+import com.lventuro.ForoHub_Challenge.application.dto.TopicoActualizacionDTO;
+import com.lventuro.ForoHub_Challenge.domain.curso.CursoRepository;
+import com.lventuro.ForoHub_Challenge.domain.curso.exception.CursoNoEncontradoException;
+import com.lventuro.ForoHub_Challenge.domain.topico.Topico;
+import com.lventuro.ForoHub_Challenge.domain.topico.TopicoRepository;
+import com.lventuro.ForoHub_Challenge.domain.topico.exception.TopicoDuplicadoException;
+import com.lventuro.ForoHub_Challenge.domain.topico.exception.TopicoNoEncontradoException;
+import com.lventuro.ForoHub_Challenge.domain.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -81,8 +81,8 @@ public class TopicoApplicationService {
      * Guarda un nuevo tópico, asignando el curso y el autor autenticado.
      * @param topico El objeto Tópico a guardar.     *
      * @return El tópico guardado.
-     * @throws TopicoDuplicadoException si el título o mensaje ya existen.
-     * @throws CursoNoEncontradoException si el curso no se encuentra.
+     * @throws com.lventuro.ForoHub_Challenge.domain.topico.exception.TopicoDuplicadoException si el título o mensaje ya existen.
+     * @throws com.lventuro.ForoHub_Challenge.domain.curso.exception.CursoNoEncontradoException si el curso no se encuentra.
      */
     @Transactional
     public Topico guardarTopico(Topico topico) throws TopicoDuplicadoException, CursoNoEncontradoException {

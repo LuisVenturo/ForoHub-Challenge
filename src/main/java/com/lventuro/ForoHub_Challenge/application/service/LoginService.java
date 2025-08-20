@@ -1,9 +1,7 @@
 package com.lventuro.ForoHub_Challenge.application.service;
 
-
-
-import com.aluracurso.foro_hub.domain.usuario.UsuarioRepository;
-import com.aluracurso.foro_hub.infrastructure.security.UserDetailsFromEntity;
+import com.lventuro.ForoHub_Challenge.domain.usuario.UsuarioRepository;
+import com.lventuro.ForoHub_Challenge.infrastructure.security.UserDetailsFromEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
 package com.lventuro.ForoHub_Challenge.application.dto;
 
-import com.aluracurso.foro_hub.domain.topico.Topico;
+import com.lventuro.ForoHub_Challenge.domain.topico.Topico;
 
 import java.time.LocalDateTime;
 

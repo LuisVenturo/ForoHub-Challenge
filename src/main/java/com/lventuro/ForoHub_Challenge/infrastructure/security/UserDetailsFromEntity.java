@@ -1,7 +1,6 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.security;
 
-
-import com.aluracurso.foro_hub.domain.usuario.Usuario;
+import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

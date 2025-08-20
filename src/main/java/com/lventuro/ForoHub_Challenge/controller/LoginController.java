@@ -1,11 +1,10 @@
 package com.lventuro.ForoHub_Challenge.controller;
 
-
-import com.aluracurso.foro_hub.aplication.dto.DatosTokenJWT;
-import com.aluracurso.foro_hub.aplication.dto.LoginDTO;
-import com.aluracurso.foro_hub.aplication.service.TokenGenerationService;
-import com.aluracurso.foro_hub.domain.usuario.Usuario;
-import com.aluracurso.foro_hub.infrastructure.security.UserDetailsFromEntity;
+import com.lventuro.ForoHub_Challenge.application.dto.DatosTokenJWT;
+import com.lventuro.ForoHub_Challenge.application.dto.LoginDTO;
+import com.lventuro.ForoHub_Challenge.application.service.TokenGenerationService;
+import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
+import com.lventuro.ForoHub_Challenge.infrastructure.security.UserDetailsFromEntity;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

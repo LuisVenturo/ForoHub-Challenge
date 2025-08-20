@@ -1,10 +1,10 @@
 package com.lventuro.ForoHub_Challenge.controller;
 
-import com.aluracurso.foro_hub.aplication.dto.DatosTopicoDTO;
-import com.aluracurso.foro_hub.aplication.dto.TopicoActualizacionDTO;
-import com.aluracurso.foro_hub.aplication.dto.TopicoDTO;
-import com.aluracurso.foro_hub.aplication.service.TopicoApplicationService;
-import com.aluracurso.foro_hub.domain.topico.Topico;
+import com.lventuro.ForoHub_Challenge.application.dto.DatosTopicoDTO;
+import com.lventuro.ForoHub_Challenge.application.dto.TopicoActualizacionDTO;
+import com.lventuro.ForoHub_Challenge.application.dto.TopicoDTO;
+import com.lventuro.ForoHub_Challenge.application.service.TopicoApplicationService;
+import com.lventuro.ForoHub_Challenge.domain.topico.Topico;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -43,6 +43,7 @@ public class TopicoController {
     /**
      * Método auxiliar para retornar una lista de tópicos de manera segura,
      * evitando un posible NullPointerException si el Optional está vacío.
+     *
      * @param listaDatosTopicosDTO Un Optional que puede contener una lista de DTOs de tópicos.
      * @return Una lista de DTOs de tópicos o una lista vacía si el Optional está vacío.
      */
@@ -86,7 +87,7 @@ public class TopicoController {
      * Busca tópicos por título y año.
      *
      * @param titulo El título o parte del título del tópico a buscar.
-     * @param anio El año de creación del tópico.
+     * @param anio   El año de creación del tópico.
      * @return Una lista de DTOs de los tópicos encontrados.
      */
     @GetMapping("/buscar")
@@ -105,7 +106,7 @@ public class TopicoController {
     /**
      * Actualiza un tópico existente por su ID.
      *
-     * @param id El ID del tópico a actualizar.
+     * @param id                     El ID del tópico a actualizar.
      * @param topicoActualizacionDTO El DTO con los datos para la actualización.
      * @return ResponseEntity con los datos del tópico actualizado y un estado HTTP 200 OK.
      */

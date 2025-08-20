@@ -1,10 +1,9 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.repository;
 
-
-import com.aluracurso.foro_hub.domain.perfil.Perfil;
-import com.aluracurso.foro_hub.domain.perfil.PerfilRepository;
-import com.aluracurso.foro_hub.domain.usuario.Usuario;
-import com.aluracurso.foro_hub.domain.usuario.UsuarioRepository;
+import com.lventuro.ForoHub_Challenge.domain.perfil.Perfil;
+import com.lventuro.ForoHub_Challenge.domain.perfil.PerfilRepository;
+import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
+import com.lventuro.ForoHub_Challenge.domain.usuario.UsuarioRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,13 +19,13 @@ public class JpaUsuarioRepository implements UsuarioRepository {
     private final IJpaUsuarioRepository jpaUsuarioRepository;
     private final PerfilRepository perfilRepository;
 
-    private void mapearDominioAPersistencia(Usuario usuario, com.aluracurso.foro_hub.infrastructure.persistence.Usuario usuarioPersistencia){
+    private void mapearDominioAPersistencia(Usuario usuario, Usuario usuarioPersistencia){
         // Convierte el POJO de dominio a la entidad de persistencia
         usuarioPersistencia.setNombre(usuario.getNombre());
         usuarioPersistencia.setCorreoElectronico(usuario.getCorreoElectronico());
         usuarioPersistencia.setContraseña(usuario.getClave());
 
-        List<com.aluracurso.foro_hub.infrastructure.persistence.Perfil> perfilesPersistencia = usuario.getPerfiles().stream()
+        List<Perfil> perfilesPersistencia = usuario.getPerfiles().stream()
                 .map(this::convertirPerfilAPersistencia)
                 .collect(Collectors.toList());
 

@@ -1,9 +1,8 @@
 package com.lventuro.ForoHub_Challenge.application.service;
 
-
-import com.aluracurso.foro_hub.aplication.dto.DatosTokenJWT;
-import com.aluracurso.foro_hub.domain.usuario.Usuario;
-import com.aluracurso.foro_hub.infrastructure.config.TokenService;
+import com.lventuro.ForoHub_Challenge.application.dto.DatosTokenJWT;
+import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
+import com.lventuro.ForoHub_Challenge.infrastructure.config.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

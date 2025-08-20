@@ -1,7 +1,6 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.repository;
 
-
-import com.aluracurso.foro_hub.infrastructure.persistence.Perfil;
+import com.lventuro.ForoHub_Challenge.domain.perfil.Perfil;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
