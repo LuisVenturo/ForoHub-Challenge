@@ -5,8 +5,6 @@ import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
 import com.lventuro.ForoHub_Challenge.domain.usuario.UsuarioRepository;
 import com.lventuro.ForoHub_Challenge.infrastructure.persistence.Perfil;
 
-import com.lventuro.ForoHub_Challenge.infrastructure.persistence.Usuario;
-
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -97,7 +95,7 @@ public class JpaUsuarioRepository implements UsuarioRepository {
     }
 
     // Método privado para la conversión de Usuario de persistencia a dominio
-    public Usuario convertirAEntidadDominio(Usuario usuarioPersistencia) {
+    public Usuario convertirAEntidadDominio(com.lventuro.ForoHub_Challenge.infrastructure.persistence.Usuario usuarioPersistencia) {
         Usuario usuarioDominio = new Usuario(
                 usuarioPersistencia.getId(),
                 usuarioPersistencia.getNombre(),

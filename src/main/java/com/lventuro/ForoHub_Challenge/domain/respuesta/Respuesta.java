@@ -42,7 +42,7 @@ public class Respuesta {
         this.topico = topico;
     }
 
-    public Usuario getAutor() {
+    public com.lventuro.ForoHub_Challenge.infrastructure.persistence.Usuario getAutor() {
         return autor;
     }
 
