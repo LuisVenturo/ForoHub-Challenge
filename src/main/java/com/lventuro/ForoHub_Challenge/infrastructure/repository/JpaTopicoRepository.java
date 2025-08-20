@@ -1,11 +1,11 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.repository;
 
-import com.aluracurso.foro_hub.domain.curso.Curso;
-import com.aluracurso.foro_hub.domain.curso.CursoRepository;
-import com.aluracurso.foro_hub.domain.topico.Topico;
-import com.aluracurso.foro_hub.domain.topico.TopicoRepository;
-import com.aluracurso.foro_hub.infrastructure.persistence.Usuario;
-import com.aluracurso.foro_hub.infrastructure.utils.GenericMapper;
+import com.lventuro.ForoHub_Challenge.domain.curso.Curso;
+import com.lventuro.ForoHub_Challenge.domain.curso.CursoRepository;
+import com.lventuro.ForoHub_Challenge.domain.topico.Topico;
+import com.lventuro.ForoHub_Challenge.domain.topico.TopicoRepository;
+import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
+import com.lventuro.ForoHub_Challenge.infrastructure.utils.GenericMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -41,7 +41,7 @@ public class JpaTopicoRepository implements TopicoRepository {
      * @param lista La lista de entidades de persistencia.
      * @return Una lista de entidades de dominio.
      */
-    private List<Topico> listaPersistidaADominio(List<com.aluracurso.foro_hub.infrastructure.persistence.Topico> lista) {
+    private List<Topico> listaPersistidaADominio(List<Topico> lista) {
         return lista.stream()
                 .map(this::persistenciaADominio)
                 .collect(Collectors.toList());
@@ -53,7 +53,7 @@ public class JpaTopicoRepository implements TopicoRepository {
      * @param topicoRepositorio La entidad de persistencia.
      * @return La entidad de dominio.
      */
-    public Topico persistenciaADominio(com.aluracurso.foro_hub.infrastructure.persistence.Topico topicoRepositorio) {
+    public Topico persistenciaADominio(Topico topicoRepositorio) {
         var topico = new Topico(topicoRepositorio.getId(),
                 topicoRepositorio.getTitulo(),
                 topicoRepositorio.getMensaje(),
@@ -71,15 +71,12 @@ public class JpaTopicoRepository implements TopicoRepository {
      * @param topico La entidad de dominio.
      * @return La entidad de persistencia.
      */
-    public com.aluracurso.foro_hub.infrastructure.persistence.Topico dominioAPersistencia(Topico topico) {
-        var topicoRepositorio = new com.aluracurso.foro_hub.infrastructure.persistence.Topico();
+    public Topico dominioAPersistencia(Topico topico) {
+        var topicoRepositorio = new Topico();
 
-        // 1. Obtenemos el ID del autor y del curso del objeto de dominio
         Long autorId = topico.getAutor();
         Long cursoId = topico.getCurso();
 
-        // 2. Buscamos las entidades de persistencia en la base de datos
-        // Usamos orElseThrow para manejar el caso en que el ID no exista
         var autor = usuarioRepository.buscarPorId(autorId)
                 .orElseThrow(() -> new IllegalArgumentException("Autor con ID " + autorId + " no encontrado"));
 
@@ -91,8 +88,8 @@ public class JpaTopicoRepository implements TopicoRepository {
 
         // 3. Asignamos los objetos de persistencia encontrados
 
-        topicoRepositorio.setAutor(autorPersitencia);
-        topicoRepositorio.setCurso(curso);
+        topicoRepositorio.setAutor(autorPersitencia.getId());//ojo
+        topicoRepositorio.setCurso(curso.getId()); //ojo
 
         // 4. Mapeamos el resto de los campos
         topicoRepositorio.setFechaCreacion(topico.getFechaCreacion());
@@ -140,7 +137,7 @@ public class JpaTopicoRepository implements TopicoRepository {
 
     @Override
     public Page<Topico> buscarTodos(Pageable paginacion) {
-        Page<com.aluracurso.foro_hub.infrastructure.persistence.Topico> topicoPersistenciaPagina = jpaTopicoRepository.findAll(paginacion);
+        Page<Topico> topicoPersistenciaPagina = jpaTopicoRepository.findAll(paginacion);
         return topicoPersistenciaPagina.map(this::persistenciaADominio);
     }
 
@@ -160,8 +157,6 @@ public class JpaTopicoRepository implements TopicoRepository {
      */
     @Override
     public Optional<Topico> actualizarTopico(Topico topico) {
-        // En esta implementación, el objeto topico ya debería tener el ID
-        // y los datos actualizados desde la capa de servicio.
         var topicoRepositorio = dominioAPersistencia(topico);
         var topicoActualizado = jpaTopicoRepository.save(topicoRepositorio);
         return Optional.of(persistenciaADominio(topicoActualizado));

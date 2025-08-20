@@ -34,7 +34,8 @@ public class Usuario implements UserDetails {
         rol.forEach(r -> this.perfiles.add(r));
     }
 
-
+    public Usuario() {
+    }
     // Getters y setters
     public Long getId() {
         return id;

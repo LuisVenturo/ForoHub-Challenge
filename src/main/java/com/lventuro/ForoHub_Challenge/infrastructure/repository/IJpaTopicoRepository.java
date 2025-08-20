@@ -1,6 +1,6 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.repository;
 
-import com.aluracurso.foro_hub.infrastructure.persistence.Topico;
+import com.lventuro.ForoHub_Challenge.domain.topico.Topico;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

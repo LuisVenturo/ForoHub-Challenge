@@ -1,6 +1,6 @@
 package com.lventuro.ForoHub_Challenge.domain.curso;
 
-import com.aluracurso.foro_hub.infrastructure.persistence.Topico;
+import com.lventuro.ForoHub_Challenge.domain.topico.Topico;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.persistence;
 
-import com.aluracurso.foro_hub.aplication.dto.TopicoDTO;
-import com.aluracurso.foro_hub.domain.curso.Curso;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lventuro.ForoHub_Challenge.application.dto.TopicoDTO;
+import com.lventuro.ForoHub_Challenge.domain.curso.Curso;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

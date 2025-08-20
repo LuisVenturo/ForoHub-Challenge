@@ -1,8 +1,7 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.config;
 
-
-import com.aluracurso.foro_hub.aplication.dto.UserDetailsFromToken;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.lventuro.ForoHub_Challenge.application.dto.UserDetailsFromToken;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

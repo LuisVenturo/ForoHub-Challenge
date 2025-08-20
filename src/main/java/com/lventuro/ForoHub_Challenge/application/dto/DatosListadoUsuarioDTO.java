@@ -1,7 +1,6 @@
 package com.lventuro.ForoHub_Challenge.application.dto;
 
-
-import com.aluracurso.foro_hub.domain.usuario.Usuario;
+import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;

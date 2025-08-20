@@ -1,12 +1,12 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.exception;
 
-import com.aluracurso.foro_hub.domain.curso.exception.CursoNoEncontradoException;
-import com.aluracurso.foro_hub.domain.perfil.exception.PerfilNoEncontradoException;
-import com.aluracurso.foro_hub.domain.respuesta.exception.SolucionYaMarcadaException;
-import com.aluracurso.foro_hub.domain.topico.exception.TopicoDuplicadoException;
-import com.aluracurso.foro_hub.domain.topico.exception.TopicoNoEncontradoException;
-import com.aluracurso.foro_hub.domain.usuario.exception.CorreoElectronicoDuplicadoException;
-import com.aluracurso.foro_hub.infrastructure.persistence.exception.RespuestaNoEncontradaException;
+import com.lventuro.ForoHub_Challenge.domain.curso.exception.CursoNoEncontradoException;
+import com.lventuro.ForoHub_Challenge.domain.perfil.exception.PerfilNoEncontradoException;
+import com.lventuro.ForoHub_Challenge.domain.respuesta.exception.SolucionYaMarcadaException;
+import com.lventuro.ForoHub_Challenge.domain.topico.exception.TopicoDuplicadoException;
+import com.lventuro.ForoHub_Challenge.domain.topico.exception.TopicoNoEncontradoException;
+import com.lventuro.ForoHub_Challenge.domain.usuario.exception.CorreoElectronicoDuplicadoException;
+import com.lventuro.ForoHub_Challenge.infrastructure.persistence.exception.RespuestaNoEncontradaException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

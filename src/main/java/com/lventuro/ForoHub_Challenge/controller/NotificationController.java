@@ -1,9 +1,8 @@
 package com.lventuro.ForoHub_Challenge.controller;
 
-
-import com.aluracurso.foro_hub.aplication.dto.ReplyNotificationData;
-import com.aluracurso.foro_hub.aplication.dto.WelcomeUserData;
-import com.aluracurso.foro_hub.aplication.service.ForoNotificationService;
+import com.lventuro.ForoHub_Challenge.application.dto.ReplyNotificationData;
+import com.lventuro.ForoHub_Challenge.application.dto.WelcomeUserData;
+import com.lventuro.ForoHub_Challenge.application.service.ForoNotificationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;

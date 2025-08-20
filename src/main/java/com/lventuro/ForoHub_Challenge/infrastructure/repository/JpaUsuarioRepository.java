@@ -1,9 +1,12 @@
 package com.lventuro.ForoHub_Challenge.infrastructure.repository;
 
-import com.lventuro.ForoHub_Challenge.domain.perfil.Perfil;
 import com.lventuro.ForoHub_Challenge.domain.perfil.PerfilRepository;
 import com.lventuro.ForoHub_Challenge.domain.usuario.Usuario;
 import com.lventuro.ForoHub_Challenge.domain.usuario.UsuarioRepository;
+import com.lventuro.ForoHub_Challenge.infrastructure.persistence.Perfil;
+
+import com.lventuro.ForoHub_Challenge.infrastructure.persistence.Usuario;
+
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -56,7 +59,7 @@ public class JpaUsuarioRepository implements UsuarioRepository {
 
     @Override
     public Usuario guardar(Usuario usuarioDominio) {
-        var usuarioPersistencia = new com.aluracurso.foro_hub.infrastructure.persistence.Usuario();
+        var usuarioPersistencia = new Usuario();
         this.mapearDominioAPersistencia(usuarioDominio,usuarioPersistencia);
 
         // Guarda en la base de datos
@@ -94,7 +97,7 @@ public class JpaUsuarioRepository implements UsuarioRepository {
     }
 
     // Método privado para la conversión de Usuario de persistencia a dominio
-    public Usuario convertirAEntidadDominio(com.aluracurso.foro_hub.infrastructure.persistence.Usuario usuarioPersistencia) {
+    public Usuario convertirAEntidadDominio(Usuario usuarioPersistencia) {
         Usuario usuarioDominio = new Usuario(
                 usuarioPersistencia.getId(),
                 usuarioPersistencia.getNombre(),
@@ -110,8 +113,8 @@ public class JpaUsuarioRepository implements UsuarioRepository {
     }
 
     // Método privado para la conversión de Perfil de dominio a persistencia
-    private com.aluracurso.foro_hub.infrastructure.persistence.Perfil convertirPerfilAPersistencia(Perfil perfilDominio) {
-        com.aluracurso.foro_hub.infrastructure.persistence.Perfil perfilPersistencia = new com.aluracurso.foro_hub.infrastructure.persistence.Perfil();
+    private Perfil convertirPerfilAPersistencia(Perfil perfilDominio) {
+        Perfil perfilPersistencia = new Perfil();
         perfilPersistencia.setId(perfilDominio.getId());
         perfilPersistencia.setNombre(perfilDominio.getNombre());
         return perfilPersistencia;

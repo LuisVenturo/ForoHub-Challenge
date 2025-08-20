@@ -24,21 +24,17 @@ public class JpaPerfilRepository implements PerfilRepository {
 
     @Override
     public Optional<Perfil> encontrarPorId(Long id) {
-        // Se busca la entidad de persistencia y se convierte a la entidad de dominio.
         return jpaRepository.findById(id)
                 .map(this::convertirAEntidadDominio);
     }
 
     @Override
     public Perfil guardar(Perfil perfilDominio) {
-        // Convierte el POJO de dominio a la entidad de persistencia.
         var perfilPersistencia = new Perfil();
         perfilPersistencia.setNombre(perfilDominio.getNombre());
 
-        // Guarda la entidad en la base de datos.
         var perfilGuardado = jpaRepository.save(perfilPersistencia);
 
-        // Convierte la entidad guardada de vuelta a un POJO de dominio.
         return convertirAEntidadDominio(perfilGuardado);
     }
 
